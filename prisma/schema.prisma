@@ -18,4 +18,5 @@ model Itinerary {
   Prompt    String
   Answer    String
   CreatedAt DateTime?
+  UpdatedAt DateTime?
 }
