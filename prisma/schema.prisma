@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Itinerary {
-  id        Int       @id @default(autoincrement())
+  id        String    @id @default(uuid())
   Prompt    String
   Answer    String
   CreatedAt DateTime?

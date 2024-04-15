@@ -43,7 +43,7 @@ router.patch('/:id', async (req, res) => {
     const itinerary = ItineraryValidator.parse(req.body);
     const updatedItinerary = await prisma.itinerary.update({
       where: {
-        id: parseInt(id),
+        id: id,
       },
       data: itinerary,
     });
