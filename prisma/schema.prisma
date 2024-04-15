@@ -14,9 +14,9 @@ datasource db {
 }
 
 model Itinerary {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   Prompt    String
   Answer    String
-  CreatedAt DateTime?
-  UpdatedAt DateTime?
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }

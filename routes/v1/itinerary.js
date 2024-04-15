@@ -25,32 +25,38 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
-  try {
-    const itinerary = ItineraryValidator.parse(req.body);
-    const createdItinerary = await prisma.itinerary.create({
-      data: itinerary,
-    });
-    res.status(201).json(createdItinerary);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+router.post("/", async (req, res) => {
+  const { Prompt, Answer, createdAt, updatedAt } =
+    ItineraryValidator.parse(req.body);
+
+  const itinerary = await prisma.itinerary.create({
+    data: {
+      Prompt,
+      Answer,
+      createdAt,
+      updatedAt,
+    },
+  });
+
+  res.status(201).json(itinerary);
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch("/:id", async (req, res) => {
   const { id } = req.params;
-  try {
-    const itinerary = ItineraryValidator.parse(req.body);
-    const updatedItinerary = await prisma.itinerary.update({
-      where: {
-        id: id,
-      },
-      data: itinerary,
-    });
-    res.json(updatedItinerary);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+  const { Prompt, Answer } = ItineraryValidator.parse(req.body);
+
+  const itinerary = await prisma.itinerary.update({
+    where: {
+      id: id,
+    },
+    data: {
+      Prompt,
+      Answer,
+      UpdatedAt: new Date(),
+    },
+  });
+
+  res.json(itinerary);
 });
 
 export default router;
