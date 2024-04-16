@@ -26,13 +26,13 @@ router.get('/:id', async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-  const { Prompt, Answer, createdAt, updatedAt } =
+  const { prompt, answer, createdAt, updatedAt } =
     ItineraryValidator.parse(req.body);
 
   const itinerary = await prisma.itinerary.create({
     data: {
-      Prompt,
-      Answer,
+      prompt,
+      answer,
       createdAt,
       updatedAt,
     },
@@ -43,16 +43,16 @@ router.post("/", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
   const { id } = req.params;
-  const { Prompt, Answer } = ItineraryValidator.parse(req.body);
+  const { prompt, answer } = ItineraryValidator.parse(req.body);
 
   const itinerary = await prisma.itinerary.update({
     where: {
       id: id,
     },
     data: {
-      Prompt,
-      Answer,
-      UpdatedAt: new Date(),
+      prompt,
+      answer,
+      updatedAt: new Date(),
     },
   });
 

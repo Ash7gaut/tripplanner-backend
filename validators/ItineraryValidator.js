@@ -1,10 +1,10 @@
 import zod from 'zod';
 
 const ItineraryValidator = zod.object({
-  Prompt: zod.string().min(1).max(255),
-  Answer: zod.string().min(1).max(900),
-  CreatedAt: zod.string().datetime().optional(),
-  UpdatedAt: zod.string().datetime().optional(),
+  prompt: zod.string().min(1).max(255),
+  answer: zod.string().min(1).max(900),
+  createdAt: zod.string().datetime().optional(),
+  updatedAt: zod.string().datetime().optional(),
 });
 
 export default ItineraryValidator;
