@@ -16,7 +16,7 @@ datasource db {
 model Itinerary {
   id        String   @id @default(uuid())
   prompt    String
-  answer    String
+  answer    Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
