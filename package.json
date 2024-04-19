@@ -20,7 +20,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@vitest/coverage-c8": "^0.33.0",
     "@vitest/ui": "^1.5.0",
     "supertest": "^6.3.4",
     "vitest": "^1.5.0"
