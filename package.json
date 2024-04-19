@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "vitest --ui",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
