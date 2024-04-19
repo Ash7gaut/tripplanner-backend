@@ -11,7 +11,7 @@ DROP TABLE `Article`;
 CREATE TABLE `Itinerary` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `RequestText` VARCHAR(191) NOT NULL,
-    `IAResponse` VARCHAR(191) NOT NULL,
+    `answer` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL,
 
     PRIMARY KEY (`id`)
